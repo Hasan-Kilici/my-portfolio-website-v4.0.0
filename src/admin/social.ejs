@@ -1,0 +1,72 @@
+<%- include("../partials/head") %>
+<%- include("../partials/adminnavbar") %>
+<div class="container"><br>
+<h3><i class="fab fa-github"></i> Github</h3>
+<hr>
+<% if(github.documentation_url == 'https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting') { %>
+<div class="api-error">
+  <i class="far fa-frown error icon"></i>
+  <h4>Github API'den yanıt Alınamadı</h4>
+</div>
+<% } else { %>
+<div class="card" data-tilt data-tilt-reverse="true" data-tilt-scale="0.99">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="rounded w-100" src="<%= github.avatar_url %>">
+      </div>
+      <div class="col-md-10">
+        <h4><%= github.login %></h4>
+        <pre><%= github.bio %></pre><br>
+      </div>
+    </div>
+  </div>
+      <div class="card-footer">
+        <button class="btn btn-dark"><i class="fad fa-users"></i> Follower : <%= github.followers %></button>
+        <button class="btn btn-dark"><i class="fad fa-users"></i>Following : <%= github.following %></button>
+        <button class="btn btn-dark"><i class="fad fa-code"></i>Repositories : <%= github.public_repos %></button>
+      </div>
+</div>
+<br>
+<br>
+<% } %>
+<h3><i class="fab fa-discord"></i> Discord</h3>
+<hr>
+<div class="card" data-tilt data-tilt-reverse="true" data-tilt-scale="0.99">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+      <img src="https://cdn.discordapp.com/avatars/<%= lanyard.data.discord_user.id %>/<%= lanyard.data.discord_user.avatar %>" class="w-100 rounded">
+      </div>
+      <div class="col-md-10">
+        <h4><%= lanyard.data.discord_user.username %>#<%= lanyard.data.discord_user.discriminator %></h4>
+       <%if (lanyard.data.discord_status == "dnd"){ %>
+       <i class="fas fa-do-not-enter text-danger"></i> Rahatsız etmeyin  
+         <div class="col-12">
+          <div class="event">
+          Durum : <%= lanyard.data.activities[0].state %>
+          </div>
+        </div>
+       <% } if (lanyard.data.discord_status == "idle") { %>
+        <i class="fas fa-moon text-warning"></i> Uyuyor
+         <div class="col-12">
+          <div class="event">
+          Durum : <%= lanyard.data.activities[0].state %>
+          </div>
+        </div>
+       <% } if(lanyard.data.discord_status == "online") {%>
+         <i class="fas fa-circle text-success"></i> Çevrimiçi
+         <div class="col-12">
+          <div class="event">
+          Durum : <%= lanyard.data.activities[0].state %>
+          </div>
+        </div>
+       <% } if(lanyard.data.discord_status == "offline"){ %>
+         <i class="fas fa-circle text-muted"></i> Çevrimdışı
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
