@@ -1,0 +1,91 @@
+img{
+  border-radius:8px;
+  margin-bottom: 1.2vh;
+}
+.social{
+ color:white;
+ text-decoration: none;
+ font-size:2.5em;
+ margin-right:10px;
+}
+.social-box{
+  padding-bottom:8px;
+}
+.comment{
+  color:#303133
+}
+.v-string{
+  color: #c5eb3d
+}
+.variable{
+  color:#3d57eb
+}
+.card-img-top{
+  height:18vh;
+  border-top-left-radius:50px;
+}
+.m-t{
+  margin-top:1.3vh
+}
+.code-box{
+  background-color:#212529;
+  border-radius:8px;
+  padding:10px;
+  color:white;
+}
+.banner{
+  width:100%;
+  height:40vh;
+}
+
+@media only screen and (max-width:600px){
+  .blog-photo{
+   padding:10px;
+  }
+}
+@media only screen and (min-width:600px){
+  .blog-photo{
+   padding:20px
+  }
+}
+.border{
+border:#dededf 0.1px solid;
+padding:0;
+border-radius:4px;
+margin-bottom:1.3vh;
+}
+.repos{
+transition:all 0.5s;
+}
+.repos:hover{
+  width:100%;
+  padding:10px;
+  box-shadow:1px 1px 10px #aaaaaa;
+}
+.api-error{
+  width:100%;
+  height:30vh;
+  display:flex;
+  flex-direction:column;
+  gap:0.5vh;
+  justify-content:center;
+  align-items:center;
+}
+.error{
+  font-size:5.4em;
+}
+.EJS{
+  color:#a91e50;
+}
+.JS{
+  color:#f1e05a;
+}
+.Go{
+  color:#00add8;
+}
+.Dart{
+  color:#00b4ab;
+}
+.CSS{
+  color:#563d7c;
+}
