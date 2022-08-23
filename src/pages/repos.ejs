@@ -1,0 +1,34 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+<div class="container">
+<% if(repo.documentation_url == 'https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'){ %>
+<div class="api-error">
+  <i class="far fa-frown error icon"></i>
+  <h4>Github API'den yanıt Alınamadı</h4>
+</div>
+<% } else { %>
+<% repo.forEach( repo =>{ %>
+<div class="card m-t repos">
+ <div class="card-body">
+   <a class="text-dark" href="<%= repo.html_url %>"><h4><%= repo.full_name %></h4></a>
+     <i class="text-warning fas fa-star"></i> <label style="margin-right:10px;"><%= repo.stargazers_count %></label> <i class="fal fa-eye text-muted"> </i> <%= repo.watchers_count %><br>
+    <%if(repo.language == "EJS") {%>
+    <i class="fas fa-circle EJS"></i>
+    <% } if(repo.language == "JavaScript"){ %>
+    <i class="fas fa-circle JS"></i>
+    <% } if(repo.language == "Go") {%>
+    <i class="fas fa-circle Go"></i>
+    <% } if( repo.language == "Dart") { %>
+    <i class="fas fa-circle Dart"></i>
+    <% } if(repo.language == "CSS") { %>
+    <i class="fas fa-circle CSS"></i>
+    <% } %>
+  <%= repo.language %>
+    <% if(repo.license) { %>
+     <br><i class="fas fa-balance-scale"></i> MIT Licanse
+     <% } %> 
+  </div>  
+</div>
+<% }) %>
+<% } %>
+</div>
