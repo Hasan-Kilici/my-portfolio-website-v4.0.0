@@ -53,7 +53,7 @@ app.post("/stats", upload.single("uploaded_file"), function (req, res) {
 //Body Parser
 app.use(bodyParser.json()).use(
   bodyParser.urlencoded({
-    extended: true,
+    extended: true, 
   })
 );
 //Statik
